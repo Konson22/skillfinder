@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+body{
+  scroll-behavior: smooth !important;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  color: rgb(255, 60, 0);
+}
+
+.clip{
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);
+}
+
+.header{
+  width: 100%;
+  background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+  url('./assets/images/business-idea-647205_1280.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.join-us{
+  background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+  url('./assets/images/business-idea-647205_1280.jpg');
+  background-size: cover;
+  background-position: center;
+}
