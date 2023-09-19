@@ -2,16 +2,16 @@
 
 export default function WhyUsSection() {
   return (
-    <div className="md:flex bg-white md:mb-0 mb-5 mx-[.5rem]">
+    <div className="md:flex bg-white md:mb-0 mb-5">
       <div className="md:w-[40%] md:h-auto h-[270px]">
         <img src={process.env.PUBLIC_URL+'/images/pexels-ali-pazani-2777898.jpg'} alt="" />
       </div>
       <div className="flex-1 md:p-8 p-4">
-        <h2 className="text-3xl font-bold">Why Choose Us?</h2>
+        <h2 className="text-3xl font-bold">Why use SkillFinder?</h2>
         <div className="mt-5">
           {data.map(us => (
             <div className="flex mb-5">
-              <div className="md:h-[65px] h-[55px] md:w-[65px] w-[55px] border-2 border-lightblue p-3 rounded-full overflow-hidden mr-4">
+              <div className="md:h-[65px] h-[45px] md:w-[65px] w-[45px] border-2 border-lightblue md:p-3 p-1 rounded-full overflow-hidden mr-4">
                 <img src={us.image} alt="" />
               </div>
               <div className="flex-1">

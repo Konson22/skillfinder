@@ -11,25 +11,74 @@ body{
 img{
   width: 100%;
   height: 100%;
-  color: rgb(255, 60, 0);
 }
 
 .clip{
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);
+  color: rgb(112, 66, 266);
+
 }
 
 .header{
   width: 100%;
   background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-  url('./assets/images/business-idea-647205_1280.jpg');
+  url('./assets/images/smartphone-5692532_1280.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .join-us{
   background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-  url('./assets/images/business-idea-647205_1280.jpg');
+  url('./assets/images/adult-1866533_1280.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.rec.rec-carousel{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.featured .rec-arrow{
+  position: absolute;
+  z-index: 30;
+  background-color: #0001 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.rec.rec-arrow-left{
+  left: -.5rem;
+}
+.rec.rec-arrow-right{
+  right: 0;
+}
+.rec-item-wrapper{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.testimonial-section .rec-arrow{
+  position: absolute;
+  z-index: 30;
+  background-color: #fff !important;
+  /* border: none !important; */
+}
+
+.bqCWu, .iWchow{
+  padding: .3rem !important;
+  width: 35px !important;
+  height: 35px !important;
+  min-width: 35px !important;
+  min-height: 35px !important;
+  font-size: 1.2rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial-section .rec.rec-arrow-left{
+  left: -.5rem !important;
+}
+.testimonial-section .rec.rec-arrow-right{
+  right: -.5rem !important;
 }
