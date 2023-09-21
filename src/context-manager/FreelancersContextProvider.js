@@ -1,6 +1,5 @@
 import { useState, useContext, createContext, useEffect } from 'react'
-import freelancersJson from '../assets/users.json'
-
+import { expertsData } from '../assets/expertsData'
 
 const contextApi = createContext()
 
@@ -9,7 +8,7 @@ export default function FreelancersContextProvider({ children }) {
   const [freelancers, setFreelancers] = useState([])
 
   useEffect(() => {
-    setFreelancers(freelancersJson)
+    setFreelancers(expertsData)
   }, []);
 
   return (

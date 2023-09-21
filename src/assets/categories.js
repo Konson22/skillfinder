@@ -1,19 +1,34 @@
 
 export const categories = [
     {
-        title:'Home Services',
-        subCategory:[
-            "Plumbing",
-            "Electrical",
-            "HVAC",
-            "Roofing",
-            "Carpentry",
-            "Pest Control",
-            "Landscaping",
-            "Painting",
-            "Cleaning Services",
-            "Appliance Repair"
-        ],
+      title:'Software Enginner',
+      subCategory:[
+        "Plumbing",
+        "Electrical",
+        "HVAC",
+        "Roofing",
+        "Carpentry",
+        "Pest Control",
+        "Landscaping",
+        "Painting",
+        "Cleaning Services",
+        "Appliance Repair"
+      ],
+    },
+    {
+      title:'Home Services',
+      subCategory:[
+        "Plumbing",
+        "Electrical",
+        "HVAC",
+        "Roofing",
+        "Carpentry",
+        "Pest Control",
+        "Landscaping",
+        "Painting",
+        "Cleaning Services",
+        "Appliance Repair"
+      ],
     },
     {
       title:'Automotive Services',
@@ -100,16 +115,6 @@ export const categories = [
       ],
     },
     {
-      title:'Home Improvement and Renovation',
-      subCategory: [
-        "Kitchen Remodeling",
-        "Bathroom Renovation",
-        "Flooring",
-        "Window and Door Installation",
-        "Deck and Patio Builders"
-      ],
-    },
-    {
       title:'Transportation and Logistics',
       subCategory: [
         "Moving Services",
@@ -138,16 +143,6 @@ export const categories = [
         "Food Delivery",
         "Catering",
         "Bakeries"
-      ],
-    },
-    {
-      title:'Legal and Government Services',
-      subCategory: [
-        "Legal Aid",
-        "Government Offices",
-        "Immigration Services",
-        "Social Services",
-        "License and Permit Services"
       ],
     },
 ]

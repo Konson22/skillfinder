@@ -6,24 +6,13 @@ module.exports = {
   theme: {
     extend: {
       colors:{
+        dark:'rgb(49, 49, 49)',
+        lightblue:'rgb(51, 150, 209)',
+        lightgreen:'rgb(119, 193, 70)',
+        lightgray:'rgb(221, 221, 209)',
         darkgray:'rgb(208, 209, 193)',
-        lightgray:'rgb(236, 236, 232)',
-        lightblue:'rgb(112, 66, 266)',
-        lightgreen:'rgb(62, 185, 13)',
       }
     },
   },
   plugins: [],
 }
-
-
-// /** @type {import('tailwindcss').Config} */
-
-// module.exports = {
-//   content: ["./src/**/*.{html, jsx, tsx, js}"],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-

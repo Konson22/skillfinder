@@ -1,9 +1,8 @@
 import { FiSearch } from "react-icons/fi";
-import DropDown from "./DropDown";
-import { states } from "../assets/data";
 import { categories } from "../assets/categories";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
+import StatesDropDown from "./StatesDropDown";
 
 export default function SearchBar({ width }) {
 
@@ -13,8 +12,12 @@ export default function SearchBar({ width }) {
   const [currentState, setCurrentState] = useState('All States');
 
   useEffect(() => {
-    const sugguested = categories.filter(c => c.title.toLocaleLowerCase().startsWith(searchText.toLocaleLowerCase()))
-    sugguested.length > 0 && setSuggestion(sugguested)
+    if(searchText){
+      const results = categories.filter(c => c.title.toLocaleLowerCase().startsWith(searchText.toLocaleLowerCase()))
+      results.length > 0 && setSuggestion(results)
+    }else{
+      setSuggestion([])
+    }
   }, [searchText])
 
 
@@ -22,11 +25,11 @@ export default function SearchBar({ width }) {
     navigate(`/search?city=${currentState}&category=${searchText}`)
   }
   return (
-    <div className='flex justify-between text-gray-700 mt-3'>
-      <DropDown title='States' data={states} actionHandler={setCurrentState} cName="" />
-      <div className={`flex md:auto ${width} h-[3rem] rounded relative md:ml-3 ml-2`}>
+    <div className='flex justify-between text-gray-700 md:mt-3'>
+      <StatesDropDown setCurrentState={setCurrentState} currentState={currentState} />
+      <div className={`flex md:auto ${width} h-[3.5rem] rounded relative md:ml-3 ml-2`}>
         <input 
-          className="h-full w-full border-none outline-none px-4" 
+          className="h-full text-[1.1rem] w-full border-none outline-none px-4" 
           type="search" 
           placeholder="Search..." 
           value={searchText}
@@ -38,14 +41,14 @@ export default function SearchBar({ width }) {
           "
           onClick={handleClick}
         >
-          <FiSearch /> Find
+          <FiSearch /> <span className="md:block hidden">Search</span>
         </button>
-        {(suggestion.length > 0) && 
+        {(searchText && suggestion.length !== 0) && 
           <ul className={`absolute left-0 w-full top-full bg-white shadow-sm border rounded py-2`}>
             {suggestion.map(s => (
-              <li className="px-4 py-1 cursor-pointer" onClick={() => {
-                setSuggestion([])
+              <li className="px-4 py-1 text-left border-b cursor-pointer" onClick={() => {
                 setSearchText(s.title)
+                setSuggestion([])
               }}>{s.title}</li>
               ))
             }

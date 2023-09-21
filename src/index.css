@@ -22,15 +22,15 @@ img{
 
 .header{
   width: 100%;
-  background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-  url('./assets/images/smartphone-5692532_1280.jpg');
+  background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+  url('./assets/images/adult-1866533_1280.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.join-us{
+.featured-section{
   background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-  url('./assets/images/adult-1866533_1280.jpg');
+  url('./assets/images/smartphone-5692532_1280.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -62,7 +62,6 @@ img{
   position: absolute;
   z-index: 30;
   background-color: #fff !important;
-  /* border: none !important; */
 }
 
 .bqCWu, .iWchow{
@@ -81,4 +80,37 @@ img{
 }
 .testimonial-section .rec.rec-arrow-right{
   right: -.5rem !important;
+}
+
+
+@media screen and (max-width:750px) {
+
+  .testimonial-section .rec.rec-arrow-left{
+    left: -1.5rem !important;
+  }
+  .testimonial-section .rec.rec-arrow-right{
+    right: -1.5rem !important;
+  }
+  
+  .testimonial-section .rec-arrow{
+    position: absolute;
+    z-index: 30;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+  
+
+  .mobile-nav{
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .inner-mobile-nav{
+    transition: .3s ease-in-out;
+    transition-delay: .1s;
+  }
+  .mobile-nav.show, .inner-mobile-nav.show{
+    transform: translateX(0);
+  }
+  .mobile-nav.hide, .inner-mobile-nav.hide{
+    transform: translateX(-100%);
+  }
 }

@@ -11,6 +11,7 @@ export const categories = [
 
 
 export const states = [
+    'All States',
     'Juba',
     'Boor',
     'Kuajok',
