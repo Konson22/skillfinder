@@ -2,12 +2,13 @@ import { useState } from "react"
 import { FaFacebook, FaGoogle } from "react-icons/fa"
 import axiosInstance from "../../hooks/useAxios"
 import { useGlobalApi } from "../../context-manager/GlobalContextProvider"
+import { Link } from "react-router-dom"
 
 
 export default function Signup() {
 
-
-  const { setIsAuth } = useGlobalApi()
+  const [message, setMessage] = useState('')
+  const { setProfile } = useGlobalApi()
   const [inputs, setInputs] = useState({
     name:'',
     email:'',
@@ -27,10 +28,14 @@ export default function Signup() {
       const results = await axiosInstance.post('/auth/register', inputs).then(res => res)
       if(results.status === 200){
         console.log(results.data)
-        return setIsAuth(results.data)
+        return setProfile(results.data)
       }
     } catch (error) {
-      console.log(error)
+      if(error?.response?.data){
+        setMessage(error?.response?.data)
+      }else{
+        setMessage('Opps Something went wrong!')
+      }
     }
   }
 
@@ -53,11 +58,13 @@ export default function Signup() {
         <div className="text-center mb-5">
           <span className="text-2xl">Or Create Account</span>
         </div>
+        {message && <span className="text-red-500 block mb-4">{message}</span>}
         <form onSubmit={handleSubmit}>
           {data.map(field => (
             <div className="h-[3rem] mb-5">
               <input 
                 {...field} 
+                required
                 value={inputs[field.name]} 
                 className="h-full bg-gray-100 border-none outline-none px-4 w-full" 
                 onChange={e => handleInput(e)} 
@@ -66,6 +73,9 @@ export default function Signup() {
           ))}
           <button className="w-full py-2 bg-lightgreen text-gray-100 rounded">Sign up</button>
         </form>
+        <div className="text-center mt-5">
+          <span>Already have an Account <Link className="text-blue-800" to='/login'>Login</Link></span>
+        </div>
       </div>
     </div>
   )

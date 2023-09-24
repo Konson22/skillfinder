@@ -18,7 +18,6 @@ export default function GlobalContextProvider({ children }) {
             'Authorization':`Barear ${token}`
           }
         }).then(res => res)
-        console.log(results.data)
         if(results.status === 200){
           setProfile(results.data.user)
         }

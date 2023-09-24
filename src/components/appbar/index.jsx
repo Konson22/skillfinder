@@ -10,7 +10,7 @@ export default function Appbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropDown, setOpenDropDown] = useState(false);
   const [openNotifications, setOpenNotifications] = useState(false);
-  const {profile } = useGlobalApi()
+  const {profile, setProfile } = useGlobalApi()
 
   const logoContent = (
     <div className="flex items-center text-lightblue mr-6">
@@ -24,6 +24,12 @@ export default function Appbar() {
 
   function toggleNavbar(){
     setIsOpen(!isOpen)
+  }
+  
+  
+  function logoutUser(){
+    localStorage.removeItem('ACCESS_TOKEN');
+    setProfile(null)
   }
   return (
     <>
@@ -88,12 +94,8 @@ export default function Appbar() {
                 9
               </span>
               {openNotifications &&
-                <div className="text-sm absolute top-[120%] md:left-0 md:w-[220px] right-0 bg-white rounded border shadow">
-                  <li className="flex items-center px-4 py-2 hover:bg-sky-200">
-                    <FiMail className="mr-1" />
-                    Message From Samson
-                  </li>
-                  <li className="flex items-center px-4 py-2 hover:bg-sky-200">
+                <div className="text-sm absolute top-[120%] md:left-0 md:w-[160px] right-0 bg-white rounded border shadow">
+                  <li className="flex items-center px-4 py-2 hover:bg-sky-200 border-b">
                     <FiMail className="mr-1" />
                     Message From Samson
                   </li>
@@ -109,13 +111,13 @@ export default function Appbar() {
                 <img src={process.env.PUBLIC_URL+'/images/Image-2.png'} alt="" />
               </div>
               <span className="md:block hidden mx-2">{profile.name}</span>
-              <FaChevronDown className={`duration-300 ${openDropDown ? 'rotate-[180deg]':''}`} />
+              <FaChevronDown className={`text-[.7rem] duration-300 ${openDropDown ? 'rotate-[180deg]':''}`} />
               {openDropDown &&
-                <div className="text-sm absolute top-[120%] md:left-0 md:w-full w-[150px] right-0 bg-white rounded border shadow">
-                  <li className="flex items-center px-4 py-2 hover:bg-sky-200">
+                <div className="text-sm absolute top-[120%] md:w-[150px] w-[150px] right-0 bg-white rounded border shadow">
+                  <Link className="flex items-center px-4 py-2 hover:bg-sky-200" to='/profile'>
                     <FaUser className="mr-1" />
                     Profile
-                  </li>
+                  </Link>
                   <li className="flex items-center px-4 py-2 hover:bg-sky-200">
                     <FaUser className="mr-1" />
                     My Resume
@@ -124,7 +126,7 @@ export default function Appbar() {
                     <FaUser className="mr-1" />
                     My Work
                   </li>
-                  <li className="flex items-center px-4 py-2 hover:bg-sky-200">
+                  <li className="flex items-center px-4 py-2 hover:bg-sky-200" onClick={logoutUser}>
                     <FaSignOutAlt className="mr-1" />
                     Logout
                   </li>

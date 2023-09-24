@@ -10,6 +10,7 @@ import Login from "./pages/form/Login";
 import Signup from "./pages/form/Signup";
 import JobsPage from "./pages/JobsPage";
 import ProvidersPage from "./pages/ProvidersPage";
+import ProfilePage from "./pages/profile";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/freelancers' element={<ExpertPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:profileId' element={<Profile />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/jobs' element={<JobsPage />} />

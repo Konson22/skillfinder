@@ -2,7 +2,7 @@ import { FaAt, FaUnlockAlt, FaUser } from "react-icons/fa";
 import axiosInstance from "../../hooks/useAxios";
 import { useGlobalApi } from "../../context-manager/GlobalContextProvider";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Login() {
@@ -37,7 +37,7 @@ export default function Login() {
   }
 
   return (
-    <div className="bg-lightblue/70 flex items-center justify-center py-[6rem]">
+    <div className="bg-lightblue flex items-center justify-center py-[6rem]">
       <div className="bg-white md:w-[27%] w-[90%] rounded shadow-md shadow-black/40 md:px-8 px-5 pb-12">
         <div className="text-center mt-[-2.5rem]">
           <div className="h-[5rem] w-[5rem] flex items-center justify-center rounded-2xl rotate-[45deg] bg-lightgreen text-white border-8 border-lightblue mx-auto my-0">
@@ -61,6 +61,9 @@ export default function Login() {
           </div>
           <button className="w-full py-2 bg-lightgreen text-white rounded">Login</button>
         </form>
+        <div className="text-center mt-5">
+          <span>Don't have Account <Link className="text-blue-800" to='/signup'>Sign up</Link></span>
+        </div>
       </div>
     </div>
   )
