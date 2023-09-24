@@ -10,7 +10,7 @@ export default function FeaturedSection() {
 
   return (
     <div className="featured-section py-[4rem] px-[8%]">
-      <Heading1 text='Featured Provider' cName="text-center text-white" />
+      <Heading1 text='Featured Freelancers' cName="text-center text-white" />
       <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 mt-6">
         {freelancers.length > 0 ? 
             freelancers.map((user, index) => (

@@ -13,7 +13,7 @@ export default function WhyUsSection() {
       <div className="flex-1 md:p-12 md:mt-0 mt-8">
         <Heading1 text='WHY CHOOSE US?' cName="md:block hidden" />
         {data.map(us => (
-          <div className="flex mb-5">
+          <div className="flex mb-5" key={us.title}>
             <div className="md:h-[55px] h-[45px] md:w-[55px] w-[45px] border border-lightblue bg-white md:p-3 p-1 rounded-full overflow-hidden mr-4">
               <img src={us.image} alt="" />
             </div>

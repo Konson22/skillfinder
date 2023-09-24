@@ -35,6 +35,13 @@ img{
   background-position: center;
 }
 
+.form-bg{
+  background-image:linear-gradient(rgba(32, 77, 136, 0.7), rgba(28, 25, 192, 0.7)), 
+  url('./assets/images/bookkeeping-615384_1280.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .rec.rec-carousel{
   padding: 0 !important;
   margin: 0 !important;

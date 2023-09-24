@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import "./index.css";
 import ExpertsContextProvider from './context-manager/FreelancersContextProvider';
-import CompaniesContextProvider from './context-manager/CompaniesContextProvider';
+import GlobalContextProvider from './context-manager/GlobalContextProvider';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
@@ -13,9 +13,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ExpertsContextProvider>
-        <CompaniesContextProvider>
+        <GlobalContextProvider>
           <App />
-        </CompaniesContextProvider>
+        </GlobalContextProvider>
       </ExpertsContextProvider>
     </BrowserRouter>
   </React.StrictMode>
