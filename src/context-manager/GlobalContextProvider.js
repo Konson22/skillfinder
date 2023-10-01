@@ -13,7 +13,7 @@ export default function GlobalContextProvider({ children }) {
   useEffect(() => {
     const verifyAuth = async () => {
       try {
-        const results = await axiosInstance.post('/auth', {token}, {
+        const results = await axiosInstance.post('/users/auth', {token}, {
           headers:{
             'Authorization':`Barear ${token}`
           }

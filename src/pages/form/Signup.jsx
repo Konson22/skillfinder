@@ -25,7 +25,7 @@ export default function Signup() {
   async function handleSubmit(e){
     e.preventDefault()
     try {
-      const results = await axiosInstance.post('/auth/register', inputs).then(res => res)
+      const results = await axiosInstance.post('/users/register', inputs).then(res => res)
       if(results.status === 200){
         console.log(results.data)
         return setProfile(results.data)

@@ -11,6 +11,7 @@ import Signup from "./pages/form/Signup";
 import JobsPage from "./pages/JobsPage";
 import ProvidersPage from "./pages/ProvidersPage";
 import ProfilePage from "./pages/profile";
+import CreateResume from "./pages/form/CreateResume";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/providers' element={<ProvidersPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/create-resume' element={<CreateResume />} />
       </Routes>
       <Footer />
     </div>

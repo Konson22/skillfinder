@@ -1,12 +1,16 @@
+import { FaUser } from "react-icons/fa"
 import { FiHeart, FiMail } from "react-icons/fi"
 import { Link } from "react-router-dom"
 
 
 export default function UserCard({user}) {
   return (
-    <div className="bg-white shadow-md rounded">
+    <div className="bg-white shadow-md rounded" key={user._id}>
         <div className="md:h-[200px] h-[250px] p-2">
-            <img src={user.avatar} alt="" />
+            {user.profile_image ? 
+                <img src={`http://localhost:3001/images${user.profile_image}`} alt="" />:
+                <FaUser />
+            }
         </div>
         <div className="flex-1 p-3">
             <h3 className="text-xl font-semibold">{user.name}</h3>

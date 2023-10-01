@@ -14,7 +14,7 @@ export const expertsData = [
     {
         _id:32,
         name:'Kon Akech',
-        profession:'Software Enginner',
+        profession:'Software Engineer',
         services:[],
         avatar:process.env.PUBLIC_URL+'/images/Image-1.png',
         bio:'Some text about the user profession and some random staff',

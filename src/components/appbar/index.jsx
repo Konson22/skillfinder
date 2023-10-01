@@ -14,10 +14,10 @@ export default function Appbar() {
 
   const logoContent = (
     <div className="flex items-center text-lightblue mr-6">
-      <div className="md:h-[2.5rem] md:w-[2.5rem] h-[2.3rem] w-[2.3rem]">
-        <img src={process.env.PUBLIC_URL+'/images/logo.png'} alt="" />
+      <div className="md:h-[3.5rem] md:w-[2.5rem] h-[2.3rem] w-[2.3rem]">
+        <img src={process.env.PUBLIC_URL+'/images/24.jpg'} alt="" />
       </div>
-      <span className="md:text-3xl font-san">ServiceConnect</span>
+      <span className="md:text-3xl font-san">Connect</span>
     </div>
   )
 
@@ -85,6 +85,11 @@ export default function Appbar() {
         </div>
         {profile ? 
           <div className="flex items-center">
+            <Link className="md:block hidden bg-green-500 text-white px-4 py-2 rounded"
+              to='/create-resume'
+            >
+              Create resume
+            </Link>
             <div className="text-[1.7rem] relative mx-6 cursor-pointer" onClick={() => setOpenNotifications(!openNotifications)}>
               <FiBell />
               <span className="
@@ -108,7 +113,7 @@ export default function Appbar() {
             </div>
             <div className="flex items-center cursor-pointer relative" onClick={() => setOpenDropDown(!openDropDown)}>
               <div className="md:h-[2rem] md:w-[2rem] h-[2.3rem] w-[2.3rem] rounded-full overflow-hidden">
-                <img src={process.env.PUBLIC_URL+'/images/Image-2.png'} alt="" />
+                <img src={`http://localhost:3001/images/${profile.profile_image}`} alt="" />
               </div>
               <span className="md:block hidden mx-2">{profile.name}</span>
               <FaChevronDown className={`text-[.7rem] duration-300 ${openDropDown ? 'rotate-[180deg]':''}`} />
