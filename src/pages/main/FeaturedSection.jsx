@@ -15,8 +15,8 @@ export default function FeaturedSection() {
         {freelancers.length > 0 ? 
             freelancers.map((user, index) => (
                 <div className="bg-white" key={index}>
-                    <div className="md:h-[230px] h-[200px] relative">
-                        <img src={user.avatar} alt="" />
+                    <div className="md:h-[250px] h-[230px] relative">
+                        <img src={user.profile_image} alt="" />
                         <span className="bg-orange-500 text-white absolute bottom-2 left-2 px-3 py-1 rounded">
                             {user.profession}
                         </span>

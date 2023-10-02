@@ -70,7 +70,7 @@ export default function Appbar() {
           `}
         >
           <ul className={`md:flex h-full w-[80%] font-semibold inner-mobile-nav md:bg-transparent bg-white ${isOpen ? 'show':'hide'}`}>
-            <div className="md:hidden bg-gray-800 p-3 flex justify-between items-center">
+            <div className="md:hidden bg-gray-100 p-3 flex justify-between items-center">
               {logoContent}
               <span className="text-xl border rounded p-1" onClick={toggleNavbar}>
                 <FiX />
@@ -113,7 +113,7 @@ export default function Appbar() {
             </div>
             <div className="flex items-center cursor-pointer relative" onClick={() => setOpenDropDown(!openDropDown)}>
               <div className="md:h-[2rem] md:w-[2rem] h-[2.3rem] w-[2.3rem] rounded-full overflow-hidden">
-                <img src={`https://hope4child-api.onrender.com/images/${profile.profile_image}`} alt="" />
+                <img src={profile.profile_image} alt="" />
               </div>
               <span className="md:block hidden mx-2">{profile.name}</span>
               <FaChevronDown className={`text-[.7rem] duration-300 ${openDropDown ? 'rotate-[180deg]':''}`} />

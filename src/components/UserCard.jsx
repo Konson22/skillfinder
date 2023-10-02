@@ -6,9 +6,9 @@ import { Link } from "react-router-dom"
 export default function UserCard({user}) {
   return (
     <div className="bg-white shadow-md rounded" key={user._id}>
-        <div className="md:h-[200px] h-[250px] p-2">
+        <div className="md:h-[230px] h-[250px] p-2">
             {user.profile_image ? 
-                <img src={`https://hope4child-api.onrender.com/images${user.profile_image}`} alt="" />:
+                <img src={user.profile_image} alt="" />:
                 <FaUser />
             }
         </div>
@@ -19,7 +19,7 @@ export default function UserCard({user}) {
             <p>{user.bio}</p>
         </div>
         <div className="flex justify-between items-center border-t p-2 bg-gray-100">
-            <Link className="bg-green-500 text-white px-3 py-1 rounded block w-[max-content]" to={`/profile/${user._id}`}>
+            <Link className="bg-green-500 text-white px-3 py-1 rounded block w-[max-content]" to={`/profile/${user.id}`}>
                 View Profile
             </Link>
             <div className="flex items-center">
