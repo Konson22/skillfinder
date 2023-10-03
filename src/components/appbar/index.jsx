@@ -83,13 +83,15 @@ export default function Appbar() {
             ))}
           </ul>
         </div>
-        {profile ? 
+        {profile ?
           <div className="flex items-center">
-            <Link className="md:block hidden bg-green-500 text-white px-4 py-2 rounded"
-              to='/create-resume'
-            >
-              Create resume
-            </Link>
+            {!profile.isFound && 
+              <Link className="md:block hidden bg-green-500 text-white px-4 py-2 rounded"
+                to='/create-resume'
+              >
+                Create resume
+              </Link>
+            }
             <div className="text-[1.7rem] relative mx-6 cursor-pointer" onClick={() => setOpenNotifications(!openNotifications)}>
               <FiBell />
               <span className="

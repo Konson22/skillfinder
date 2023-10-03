@@ -3,21 +3,20 @@ import axiosInstance from '../hooks/useAxios';
 
 const contextApi = createContext()
 
-export default function FreelancersContextProvider({ children }) {
+export default function ResumeContextProvider({ children }) {
 
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
-  const [freelancers, setFreelancers] = useState([])
+  const [resume, setResume] = useState([])
 
   useEffect(() => {
     const controller = new AbortController();
     let isMuted = true
     async function fetchResumies(){
       try{
-        const results = await axiosInstance('/users/freelancers').then(res => res)
+        const results = await axiosInstance('/resume').then(res => res)
         if(isMuted){
-          results.data.length >=1 ? setFreelancers(results.data) : setMessage('No data')
-          console.log(results.data)
+          results.data.length >=1 ? setResume(results.data) : setMessage('No data')
         }
       }catch(error){
         if(error.status === 404 || error.status === 403 || error.status === 500){
@@ -37,10 +36,10 @@ export default function FreelancersContextProvider({ children }) {
   }, []);
 
   return (
-    <contextApi.Provider value={{ freelancers, message, setFreelancers, isLoading }}>
+    <contextApi.Provider value={{ resume, message, setResume, isLoading }}>
       {children}
     </contextApi.Provider>
   )
 }
 
-export const useFreelancers = () => useContext(contextApi)
+export const useResume = () => useContext(contextApi)

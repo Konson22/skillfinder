@@ -1,21 +1,21 @@
 import { FiChevronDown, FiSearch } from "react-icons/fi";
 import { categories } from "../../assets/data";
 import UserCard from "../../components/UserCard";
-import { useFreelancers } from "../../context-manager/FreelancersContextProvider";
+import { useResume } from "../../context-manager/ResumeContextProvider";
 import { useEffect, useState } from "react";
 import { states } from "../../assets/data";
 
 
 export default function ExpertPage() {
 
-  const { freelancers } = useFreelancers()
+  const { resume } = useResume()
   const [currentFreelancers, setCurrentFreelancers] = useState([])
 
   
 
   useEffect(() => {
-    freelancers.length > 0 && setCurrentFreelancers(freelancers)
-  }, [freelancers])
+    resume.length > 0 && setCurrentFreelancers(resume)
+  }, [resume])
   
   
   function handleSearchQuery(data){
@@ -23,9 +23,9 @@ export default function ExpertPage() {
     const query = data.toLowerCase();
 
     if(data === 'All States' || data === 'All Categories'){
-      results = freelancers
+      results = resume
     }else{
-      results = freelancers.filter(u => u.profession.toLowerCase().startsWith(query) || u.state.toLowerCase().startsWith(query))
+      results = resume.filter(u => u.profession.toLowerCase().startsWith(query) || u.state.toLowerCase().startsWith(query))
     }
     if(results.length){
       setCurrentFreelancers(results)

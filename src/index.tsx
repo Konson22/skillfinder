@@ -1,22 +1,21 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-// import "./fonts/line-awesome-1.3.0/css/line-awesome.css";
+import GlobalContextProvider from './context-manager/GlobalContextProvider';
+import ResumeContextProvider from './context-manager/ResumeContextProvider';
 import App from './App';
 import "./index.css";
-import ExpertsContextProvider from './context-manager/FreelancersContextProvider';
-import GlobalContextProvider from './context-manager/GlobalContextProvider';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ExpertsContextProvider>
+      <ResumeContextProvider>
         <GlobalContextProvider>
           <App />
         </GlobalContextProvider>
-      </ExpertsContextProvider>
+      </ResumeContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -4,7 +4,6 @@ import Navbar from "./components/appbar";
 import ExpertPage from "./pages/experts";
 import Footer from "./components/Footer";
 import ScrollToTop from "./hooks/ScrollToTop";
-import SearchPage from "./pages/SearchPage";
 import Profile from "./pages/experts/Profile";
 import Login from "./pages/form/Login";
 import Signup from "./pages/form/Signup";
@@ -25,7 +24,6 @@ function App() {
         <Route path='/freelancers' element={<ExpertPage />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/profile/:profileId' element={<Profile />} />
-        <Route path='/search' element={<SearchPage />} />
         <Route path='/jobs' element={<JobsPage />} />
         <Route path='/providers' element={<ProvidersPage />} />
         <Route path='/login' element={<Login />} />

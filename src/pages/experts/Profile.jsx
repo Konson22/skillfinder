@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { useFreelancers } from "../../context-manager/FreelancersContextProvider";
+import { useResume } from "../../context-manager/ResumeContextProvider";
 import { FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaStar, FaStarHalf, FaWhatsapp } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 
 export default function Profile() {
 
-    const { freelancers } = useFreelancers()
+    const { resume } = useResume()
     const [profile, setProfile] = useState(null);
     const { profileId } = useParams();
   
     useEffect(() => {
       // eslint-disable-next-line eqeqeq
-      const res = freelancers.filter(user => user.id == profileId)[0]
+      const res = resume.filter(user => user.id == profileId)[0]
       res && setProfile(res)
       
-    }, [profileId, freelancers])
+    }, [profileId, resume])
 
 
     const contactContent = (cName='') => {

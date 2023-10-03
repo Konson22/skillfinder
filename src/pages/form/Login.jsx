@@ -23,7 +23,7 @@ export default function Login() {
     e.preventDefault()
     setIsLoading(true)
     try {
-      const results = await axiosInstance.post('/users/auth/login', inputs).then(res => res)
+      const results = await axiosInstance.post('/auth/login', inputs).then(res => res)
       if(results.status === 200){
         setProfile(results.data.user)
         localStorage.setItem('ACCESS_TOKEN', results.data.ACCESS_TOKEN)

@@ -8,21 +8,43 @@ export default function GlobalContextProvider({ children }) {
   const [openForm, setOpenForm] = useState(null)
   const [profile, setProfile] = useState(null)
 
-  const token = localStorage.getItem('ACCESS_TOKEN');
   useEffect(() => {
     const verifyAuth = async () => {
       try {
-        const results = await axiosInstance.post('/users/auth').then(res => res)
+        const results = await axiosInstance.post('/auth').then(async res => res)
         if(results.status === 200){
-          setProfile(results.data)
+          const isFound = await checkResume(results.data.id)
+          console.log(isFound)
+          setProfile({...results.data, isFound})
+          // if(isFound){
+          // }else{
+          //   setProfile(results.data)
+          // }
         }
       } catch (error) {
-        console.log(error.response?.data)
+        if(error.response){
+          console.log(error.response?.data)
+        }else{
+          console.log(error.message)
+        }
       }
     }
     
     verifyAuth()
-  }, [token])
+  }, [])
+  
+  const checkResume = async (id) => {
+    try {
+      return await axiosInstance(`/resume/single?resume_id=${id}`).then(res => res.data.isFound)
+    } catch (error) {
+      if(error.response){
+        return error.response?.data.isFound
+      }else{
+        console.log(error.message)
+      }
+    }
+  }
+
 
   return (
     <contextApi.Provider value={{ openForm, setOpenForm, profile, setProfile }}>
