@@ -1,6 +1,7 @@
 
 export const categories = [
     'Electrician',
+    'Web Developer',
     'Machenic',
     'Welder',
     'Kapenter',

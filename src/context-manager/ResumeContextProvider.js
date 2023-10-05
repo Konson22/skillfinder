@@ -16,7 +16,7 @@ export default function ResumeContextProvider({ children }) {
       try{
         const results = await axiosInstance('/resume').then(res => res)
         if(isMuted){
-          results.data.length >=1 ? setResume(results.data) : setMessage('No data')
+          setResume(results.data)
         }
       }catch(error){
         if(error.status === 404 || error.status === 403 || error.status === 500){

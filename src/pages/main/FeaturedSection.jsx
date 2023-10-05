@@ -43,7 +43,7 @@ export default function FeaturedSection() {
                         </div>
                     </div>
                     <div className="flex">
-                        <Link className="text-center w-full py-3 text-white bg-lightblue" to={`/profile/${user._id}`}>Profile</Link>
+                        <Link className="text-center w-full py-3 text-white bg-lightblue" to={`/profile/${user.id}`}>Profile</Link>
                         <button className="w-full py-3 text-white bg-lightgreen">Hire Me</button>
                     </div>
                 </div>
