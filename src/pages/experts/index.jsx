@@ -10,7 +10,7 @@ import { useSearchParams } from "react-router-dom";
 
 export default function ExpertPage() {
 
-  const { resume } = useResume()
+  const { resume, isLoading } = useResume()
   const [currentFreelancers, setCurrentFreelancers] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
   const [message, setMessage] = useState('')
@@ -49,25 +49,26 @@ export default function ExpertPage() {
 
   return (
     <div className='md:px-[3%] px-3 bg-gray-100'>
-      <div className="md:flex items-center justify-between mt-">
-        <h3 className="md:text-4xl text-xl">Search</h3>
-        <div className="md:flex md:mt-4 mt-2">
-          <div className="flex md:mb-0 mb-4">
+      <div className="md:flex items-center justify-between pt-3">
+        <h3 className="md:text-4xl text-xl md:mb-0 mb-2 md:font-bold">Freelancers</h3>
+        <div className="md:flex">
+          <div className="md:flex hidden md:mb-0 mb-4">
             <DropDown title='State' data={states} actionHandler={handleSearchQuery} />
             <DropDown title='Categories' data={categories} actionHandler={handleSearchQuery} cName='md:w-[12rem] h-[3rem] px-3 mx-2' />
           </div>
           <SearchBar actionHandler={handleSearchQuery} />
         </div>
       </div>
-      <div className="md:py-8 p-3">
+      <div className="md:py-8 md:p-3">
+        {isLoading && 
+          <div className="text-3xl">Loading...</div>
+        }
         {message && message}
-        {currentFreelancers.length > 0 &&
-        <>
-          <h3 className="text-4xl font-bold">Freelancers</h3>
+        {(!isLoading && currentFreelancers.length > 0) ?
           <div className="grid md:grid-cols-4 grid-cols-1 gap-4 mt-6">
             {currentFreelancers.map(user => <UserCard user={user} />)}
-          </div>
-        </>
+          </div>:
+        'No users found'
         }
       </div>
     </div>
@@ -100,7 +101,7 @@ function SearchBar({ actionHandler }){
   
   return(
     <div className="">
-      <span className="block m-1">Search by key word</span>
+      <span className="md:block hidden m-1">Search by key word</span>
       <form className="flex md:w-[400px] flex-1 bg-red-200 h-[3rem] relative" onSubmit={handleSubmit}>
         <input 
           className="h-full md:flex-1 w-full bg-white border-none outline-none px-4" 

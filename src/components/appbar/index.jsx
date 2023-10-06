@@ -78,7 +78,7 @@ export default function Appbar() {
             </div>
             {links.map(link => (
               <li className="" key={link.text}>
-                <Link className='md:p-6 p-2 block' to={link.path} onClick={toggleNavbar}>{link.text}</Link>
+                <Link className='md:px-4 md:py-6 p-2 block' to={link.path} onClick={toggleNavbar}>{link.text}</Link>
               </li>
             ))}
           </ul>
@@ -155,7 +155,7 @@ export default function Appbar() {
 
 const links = [
   {text:'Home', path:'/'},
-  {text:'Experts', path:'/freelancers'},
+  {text:'Freelancers', path:'/freelancers'},
   {text:'Providers', path:'/providers'},
   {text:'Jobs', path:'/jobs'},
   {text:'Contact Us', path:'/contact'},

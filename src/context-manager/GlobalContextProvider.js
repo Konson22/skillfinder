@@ -6,20 +6,17 @@ const contextApi = createContext()
 export default function GlobalContextProvider({ children }) {
 
   const [openForm, setOpenForm] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [profile, setProfile] = useState(null)
 
   useEffect(() => {
     const verifyAuth = async () => {
+      setIsLoading(true)
       try {
         const results = await axiosInstance.post('/auth').then(async res => res)
         if(results.status === 200){
           const isFound = await checkResume(results.data.id)
-          console.log(isFound)
           setProfile({...results.data, isFound})
-          // if(isFound){
-          // }else{
-          //   setProfile(results.data)
-          // }
         }
       } catch (error) {
         if(error.response){
@@ -27,6 +24,8 @@ export default function GlobalContextProvider({ children }) {
         }else{
           console.log(error.message)
         }
+      }finally{
+        setIsLoading(false)
       }
     }
     
@@ -47,7 +46,7 @@ export default function GlobalContextProvider({ children }) {
 
 
   return (
-    <contextApi.Provider value={{ openForm, setOpenForm, profile, setProfile }}>
+    <contextApi.Provider value={{ openForm, setOpenForm, profile, isLoading, setProfile }}>
       {children}
     </contextApi.Provider>
   )

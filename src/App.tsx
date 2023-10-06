@@ -16,7 +16,7 @@ import CreateResume from "./pages/form/CreateResume";
 function App() {
 
   return (
-    <div className="text-base text-gray-500">
+    <div className=" md:text-gray-500 text-gray-400 font-sans">
       <Navbar />
       <ScrollToTop />
       <Routes>

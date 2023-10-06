@@ -17,10 +17,9 @@ export default function Header() {
 
   return (
     <header className="header md:px-[8%] px-3 pb-2">
-      <div className="mdtext-center md:py-[10rem] py-[5rem] text-white md:font-semibold font-thin">
-        <h2 className="md:text-6xl text-3xl">Connecting You to Local Excellence</h2>
-        <h1 className="md:text-6xl text-3xl">& Create a Greate Opportunities</h1>
-        <div className="flex md:w-[80%] md:bg-lightblue/80 text-gray-700 md:p-7 mt-8">
+      <div className="md:w-[85%] md:py-[10rem] py-[5rem] text-white md:font-bold font-semibol">
+        <h2 className="md:text-6xl text-3xl md:text-left text-center">Connecting You to Local Excellence & Create a Greate Opportunities</h2>
+        <div className="flex md:w-[80%] md:bg-lightblue/80 text-gray-700 md:p-7 md:mt-8 mt-6">
           <div className="md:flex hidden">
             <DropDown title='Categories' data={categories} actionHandler={actionHandler} cName='md:w-[250px] w-auto h-[3.5rem] mr-2 px-5' />
           </div>
@@ -56,7 +55,7 @@ function SearchBar({ actionHandler }){
   
   return(
     <div className="flex-1">
-      <span className="block m-1 text-white">Search by key word</span>
+      <span className="md:block hidden m-1 text-white">Search by key word</span>
       <form className="flex w-full bg-red-200 h-[3.5rem] relative" onSubmit={handleSubmit}>
         <input 
           className="h-full md:flex-1 w-full bg-white border-none outline-none px-4" 

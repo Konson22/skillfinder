@@ -1,14 +1,13 @@
 import { useState } from "react"
 import { FaFacebook, FaGoogle } from "react-icons/fa"
 import axiosInstance from "../../hooks/useAxios"
-import { useGlobalApi } from "../../context-manager/GlobalContextProvider"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 export default function Signup() {
 
+  const navigate = useNavigate()
   const [message, setMessage] = useState('')
-  const { setProfile } = useGlobalApi()
   const [inputs, setInputs] = useState({
     name:'',
     email:'',
@@ -28,7 +27,7 @@ export default function Signup() {
       const results = await axiosInstance.post('/auth/register', inputs).then(res => res)
       if(results.status === 200){
         console.log(results.data)
-        return setProfile(results.data)
+        return navigate('/login')
       }
     } catch (error) {
       if(error?.response?.data){
